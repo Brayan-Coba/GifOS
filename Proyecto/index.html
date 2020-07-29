@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GifOS</title>
+    <link rel="stylesheet" href="./styles/SASS/day.css">
+    <link rel="stylesheet" href="./styles/SASS/nigth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body id="body">
+    <header>
+        <div class="saludo"><p class="txt-saludo">¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</p></div>
+        <div class="encabezado">
+            <div class="logo-gifOF">
+                <img src="./assets/gifOF_logo.png" alt="logo de gifOS" class="logo-dia-day">
+                <img src="./assets/gifOF_logo_dark.png" alt="logo de gifOS" class="logo-noche-day">
+            </div>
+            <div class="botones">
+                <button class= "boton btn-crear-guifos" type="button">Crear Guifos</button>
+                    <div class="estilos">
+                        <div class="btn-estilos">
+                            <button class= "boton btn-elegir-tema-principal" id="btn-elegir-tema-principal" onclick="clickEnBoton()">Elegir Tema </button>
+                            <button class= "boton btn-dropdown" onclick="clickEnBoton()"><img src="./assets/dropdown.svg" alt="icono de flecha abajo"></button>
+                        </div>
+                        <div id="dropdown-estilos" class="sailor-estilos">
+                            <button class="sailor-day" onclick="clickEnEstiloDay()">Sailor day</button>
+                            <button class="sailor-nigth" onclick="clickEnEstiloNigth()">Sailor nigth</button>
+                        </div>                     
+                    </div>
+            </div> 
+            <div class="cont-mis-gifos">
+                <a class="mis-gifos" href=""><u>M</u>is Gifos</a>
+            </div> 
+               
+        </div>
+        <div class="buscar">
+            <div class="encabezado-buscador">Buscar</div>
+            <div class="cuerpo-buscador">
+                <input type="text" class="buscador" id="input_buscador" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
+                <button class="lupa_buscar" id="busqueda" onclick="clickEnBusqueda()">
+                    <img src="./assets/lupa_inactive.svg" alt="lupa de busqueda"><span class="txt_buscar inactivo" id="txt_buscar_id">Buscar</span></div>
+              
+            </div>
+
+        </div>
+
+        <img src="" alt="prueba">
+        <img id="imagen" src="" alt="imagen">
+    </header>
+<script src="./scripts/index.js"></script>
+</body>
+</html>

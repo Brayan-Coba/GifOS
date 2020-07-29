@@ -1,0 +1,13 @@
+#body.nigth {
+  background: #110038 100%;
+}
+
+#body.nigth .logo-dia-day {
+  display: none;
+}
+
+#body.nigth .logo-noche-day {
+  display: block;
+  margin: 3% 5%;
+}
+/*# sourceMappingURL=nigth.css.map */
