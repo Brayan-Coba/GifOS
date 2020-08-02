@@ -41,8 +41,7 @@ body .logo-noche-day {
   display: none;
 }
 
-body .botones {
-  width: 35%;
+body .contenedor_botones {
   -ms-flex-item-align: center;
       align-self: center;
   display: -webkit-box;
@@ -72,16 +71,19 @@ body .boton:active {
 }
 
 body .btn-crear-guifos {
-  padding: 2.2% 10%;
+  width: 144px;
+  height: 36px;
+  margin-right: 3%;
 }
 
 body .btn-elegir-tema-principal {
-  padding: 2.2% 9.1%;
+  width: 131px;
+  height: 36px;
 }
 
 body .btn-dropdown {
-  padding: 2.2% 2.5%;
-  margin-left: -1%;
+  width: 36px;
+  height: 36px;
 }
 
 body .estilos {
@@ -111,16 +113,21 @@ body .sailor-estilos {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 3.8%;
-}
-
-body .show {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  width: 167px;
+  margin-top: 35px;
+  height: 102px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
 }
 
 body .sailor-day {
+  width: 150px;
+  height: 36px;
+  margin-top: 5%;
   background: #FFF4FD;
   border: 1px solid #CCA6C9;
   -webkit-box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
@@ -128,6 +135,9 @@ body .sailor-day {
 }
 
 body .sailor-nigth {
+  width: 150px;
+  height: 36px;
+  margin-top: 5%;
   background: #F0F0F0;
   border: 1px solid #808080;
   -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
@@ -138,8 +148,8 @@ body .cont-mis-gifos {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  margin-left: -4%;
-  width: 10%;
+  width: 6%;
+  margin-left: 1%;
 }
 
 body .mis-gifos {
@@ -181,14 +191,17 @@ body .encabezado-buscador {
   background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
   background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
   width: 85%;
+  -webkit-box-shadow: inset -2px 0px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px 0px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  padding: 5px 0 0 1%;
 }
 
 body .cuerpo-buscador {
   background: #E6E6E6;
-  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 0px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 0px 0 0 #FFFFFF;
   width: 85%;
-  height: 99px;
+  height: 4em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -198,7 +211,15 @@ body .cuerpo-buscador {
 }
 
 body .buscador {
-  background-color: white;
+  background: #FFFFFF;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 1px 1px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 1px 1px 0 0 #000000;
+  cursor: text;
+  margin-left: 2%;
+  padding-left: 1%;
+  height: 2em;
+  width: 90%;
 }
 
 body .lupa_buscar {
@@ -206,6 +227,8 @@ body .lupa_buscar {
   border: 1px solid #808080;
   -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+  padding: 3px;
+  margin-left: 1%;
 }
 
 body .txt_buscar {
@@ -218,5 +241,143 @@ body .txt_buscar {
 
 body .inactivo {
   color: #B4B4B4;
+}
+
+body .cuerpo_opciones {
+  background: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  height: 10em;
+  width: 85%;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1% 0% 0% 2%;
+}
+
+body .opcion {
+  background: #F0F0F0;
+  border: 1px solid #808080;
+  -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+  width: 91.2%;
+  height: 2em;
+  margin: 5px;
+  padding-left: 2%;
+  cursor: pointer;
+}
+
+body .sugerencias_hoy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 3%;
+  height: 25em;
+}
+
+body .caja_txt {
+  width: 85%;
+  background: #FFFAFE;
+  border: 1px solid #E6BBE2;
+  -webkit-box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+          box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+  padding-left: 1%;
+}
+
+body .cuerpo_sugerencias_hoy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 1%;
+}
+
+body .contenedor_gif_hoy {
+  margin-right: 3.6%;
+}
+
+body .encabezado_gif {
+  background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
+  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+  width: 246px;
+  height: 24px;
+}
+
+body .txt_encabezado_gif {
+  font-family: ChakraPetch-Bold;
+  font-size: 14px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  padding-left: 3%;
+}
+
+body .img_cerrar {
+  cursor: pointer;
+  float: right;
+  margin: 5px 5px 0 0;
+}
+
+body .gif_hoy {
+  display: inline-block;
+  position: absolute;
+}
+
+body .img_gif_hoy {
+  width: 246px;
+  height: 246px;
+}
+
+body .btn_ver_mas {
+  background: #4180F6;
+  border: 1px solid #4C2F99;
+  -webkit-box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+  position: absolute;
+  left: 1em;
+  bottom: 1em;
+  font-family: ChakraPetch-Regular;
+  font-size: 14px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 18px;
+  padding: 3px;
+  cursor: pointer;
+}
+
+body .tendencias {
+  margin-left: 3%;
+}
+
+body .contenedor_tendencias {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+body .div_gif_tendencia {
+  margin: 1%;
+}
+
+body .gif_tendencia {
+  width: 246px;
+  height: 246px;
+}
+
+body .show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .suppress {
+  display: none;
 }
 /*# sourceMappingURL=day.css.map */

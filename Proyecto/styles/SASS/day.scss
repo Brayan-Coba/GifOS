@@ -38,8 +38,7 @@ body{
         display: none;
     }
 
-    .botones{
-        width: 35%;
+    .contenedor_botones{
         align-self: center;
         display: flex;
     }
@@ -65,18 +64,19 @@ body{
    }
 
    .btn-crear-guifos{
-    padding: 2.2% 10%;
+    width: 144px;
+    height: 36px;
+    margin-right: 3%;
    }
 
    .btn-elegir-tema-principal{
-    padding: 2.2% 9.1%;
- 
+    width: 131px;
+    height: 36px;
    }
 
    .btn-dropdown{
-    padding: 2.2% 2.5%;
-    margin-left: -1%;
-  
+    width: 36px;
+    height: 36px;
    }
 
    .estilos{
@@ -85,27 +85,36 @@ body{
    }
 
    .btn-estilos{
-       display: flex;
-       flex-direction: row;
+    display: flex;
+    flex-direction: row;
    }
 
    
    .sailor-estilos{
-       display: none;
-       position: absolute;
-       flex-direction: column;
-       margin-top: 3.8%;
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    width: 167px;
+    margin-top: 35px;
+    height: 102px;
+    align-items: center;
+    background: #E6E6E6;
+    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
    }
 
-   .show{display: flex;}
-
    .sailor-day{
+    width: 150px;
+    height: 36px;
+    margin-top: 5%;
     background: #FFF4FD;
     border: 1px solid #CCA6C9;
-    box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+    box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;  
    }
 
    .sailor-nigth{
+    width: 150px;
+    height: 36px;
+    margin-top: 5%;
     background: #F0F0F0;
     border: 1px solid #808080;
     box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
@@ -113,8 +122,8 @@ body{
 
    .cont-mis-gifos{
     align-self: center;
-    margin-left: -4%;
-    width: 10%;
+    width: 6%;
+    margin-left: 1%;
     }
 
    .mis-gifos{
@@ -148,25 +157,36 @@ body{
     letter-spacing: 0;
     background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
     width: 85%;
+    box-shadow: inset -2px 0px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    padding: 5px 0 0 1%;
     }
 
     .cuerpo-buscador{
     background: #E6E6E6;
-    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 0px 0 0 #FFFFFF;
     width: 85%;
-    height: 99px;
+    height: 4em;
     display: flex;
     align-items: center;
     }
 
     .buscador{
-        background-color: white;
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 1px 1px 0 0 #000000;
+    cursor: text;
+    margin-left: 2%;
+    padding-left: 1%;
+    height: 2em;
+    width: 90% 
     }
 
     .lupa_buscar{
     background: #E6E6E6;
     border: 1px solid #808080;
     box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+    padding: 3px;
+    margin-left: 1%
     }
 
     .txt_buscar{
@@ -180,4 +200,122 @@ body{
     color: #B4B4B4;
     }
 
+    .cuerpo_opciones{
+    background: #E6E6E6;
+    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    height: 10em;
+    width: 85%;
+    display: none;
+    flex-direction: column;
+    padding: 1% 0% 0% 2%;
+    }
+
+    .opcion{
+    background: #F0F0F0;
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+    width: 91.2%;
+    height: 2em;
+    margin: 5px;
+    padding-left: 2%;
+    cursor: pointer;
+    }
+
+    .sugerencias_hoy{
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+    height: 25em;
+    }
+
+    .caja_txt{
+    width: 85%;
+    background: #FFFAFE;
+    border: 1px solid #E6BBE2;
+    box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+    padding-left: 1%;
+    }
+
+    .cuerpo_sugerencias_hoy{
+    display: flex;
+    margin-top: 1%;
+    }
+
+    .contenedor_gif_hoy{
+    margin-right: 3.6%;
+    }
+    
+    .encabezado_gif{
+    background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+    width: 246px;
+    height: 24px;
+    }
+
+    .txt_encabezado_gif{
+    font-family: ChakraPetch-Bold;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    padding-left: 3%;
+    }
+
+    .img_cerrar{
+    cursor: pointer;
+    float: right;
+    margin: 5px 5px 0 0;
+    }
+
+    .gif_hoy{
+    display: inline-block;
+    position: absolute;
+    }
+
+    .img_gif_hoy{
+    width: 246px;
+    height: 246px;
+    }
+
+    .btn_ver_mas{
+    background: #4180F6;
+    border: 1px solid #4C2F99;
+    box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+    position: absolute;
+    left: 1em;
+    bottom: 1em;
+    font-family: ChakraPetch-Regular;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 18px;
+    padding: 3px;
+    cursor: pointer;
+    }
+
+    .tendencias{
+        margin-left: 3%;
+    }
+
+    .contenedor_tendencias{
+    display: flex;
+    flex-wrap: wrap;
+    }
+
+    .div_gif_tendencia{
+        margin: 1%;
+    }
+
+    .gif_tendencia{
+        width: 246px;
+        height: 246px;
+    }
+
+    .show{
+    display: flex;
+     }
+
+    .suppress{
+        display: none;
+    }
+ 
  }
