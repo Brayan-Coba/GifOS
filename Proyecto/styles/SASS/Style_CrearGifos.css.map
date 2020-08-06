@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,IADA,CACA,mBAAmB,CAAA;EACf,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,WAAW,EAAE,GAAG;CACnB;;AALL,AAMI,IANA,CAMA,cAAc,CAAA;EACV,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;CACf",
+    "sources": [
+        "Style_CrearGifos.scss"
+    ],
+    "names": [],
+    "file": "Style_CrearGifos.css"
+}

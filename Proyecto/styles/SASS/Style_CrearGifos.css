@@ -1,0 +1,15 @@
+body .cont_flecha_volver {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 2em;
+}
+
+body .flecha_volver {
+  width: 24px;
+  height: 24px;
+}
+/*# sourceMappingURL=Style_CrearGifos.css.map */

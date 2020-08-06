@@ -14,24 +14,25 @@
         <div class="saludo"><p class="txt-saludo">¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</p></div>
         <div class="encabezado">
             <div class="logo-gifOF">
-                <img src="./assets/gifOF_logo.png" alt="logo de gifOS" class="logo-dia-day">
-                <img src="./assets/gifOF_logo_dark.png" alt="logo de gifOS" class="logo-noche-day">
+                <a href="../index.html"><img src="./assets/gifOF_logo.png" alt="logo de gifOS" class="logo-dia-day"></a>
+                <a href="../index.html"><img src="./assets/gifOF_logo_dark.png" alt="logo de gifOS" class="logo-noche-day"></a>
             </div>
             <div class="contenedor_botones">
-                <button class= "boton btn-crear-guifos" type="button">Crear Guifos</button>
+                <button class= "boton btn-crear-guifos" type="button" onclick="cambiarPaginaCrearGifos()">Crear Guifos</button>
                     <div class="estilos">
                         <div class="btn-estilos">
                             <button class= "boton btn-elegir-tema-principal" id="btn-elegir-tema-principal" onclick="elegirTema()">Elegir Tema </button>
-                            <button class= "boton btn-dropdown" onclick="elegirTema()"><img src="./assets/dropdown.svg" alt="icono de flecha abajo"></button>
+                            <button class= "boton btn-dropdown" onclick="elegirTema()"><img src="./assets/dropdown.svg" id="flecha_dropdown" alt="icono de flecha dropdown abajo"></button>
+                            <button class= "boton btn-forward" onclick="elegirTema()"><img src="./assets/forward.svg" id="flecha_forward" alt="icono de flecha forward abajo"></button>
                         </div>
                         <div id="dropdown-estilos" class="sailor-estilos">
-                            <button class="sailor-day" onclick="clickEnEstiloDay()">Sailor day</button>
-                            <button class="sailor-nigth" onclick="clickEnEstiloNigth()">Sailor nigth</button>
+                            <button class="sailor-day" onclick="clickEnEstiloDay()">Sailor Day</button>
+                            <button class="sailor-nigth" onclick="clickEnEstiloNigth()">Sailor Nigth</button>
                         </div>                     
                     </div>
             </div> 
             <div class="cont-mis-gifos">
-                <a class="mis-gifos" href=""><u>M</u>is Gifos</a>
+                <a class="mis-gifos" href="">Mis Gifos</a>
             </div> 
                
         </div>
@@ -39,26 +40,27 @@
             <div class="encabezado-buscador">Buscar</div>
             <div class="cuerpo-buscador">
                 <input type="text" class="buscador" id="input_buscador" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
-                <button class="lupa_buscar" id="busqueda" onclick="clickEnBusqueda()">
-                    <img src="./assets/lupa_inactive.svg" id="lupa_buscar" alt="lupa de busqueda"><span class="txt_buscar inactivo" id="txt_buscar_id">Buscar</span>
+                <button class="lupa_buscar inactivo" id="busqueda" onclick="clickEnBusqueda()">
+                    <img src="./assets/lupa_inactive.svg" id="img_lupa_buscar_day" alt="lupa de busqueda">
+                    <img src="./assets/Combined Shape.svg" id="img_lupa_buscar_nigth" alt="lupa de busqueda">
+                    <span class="txt_buscar inactivo" id="txt_buscar_id">Buscar</span>
                 </button>
             </div>
             <div class="cuerpo_opciones" id="div_cuerpo_opciones">
                 <div class="opcion" id="sugerencia_opcion_1" onclick="buscarSugerencia(event)">
-                    <span id="sugerencia_span_1"></span>
+                    <span class="txt_sugerencia" id="sugerencia_span_1"></span>
                 </div>
                 <div class="opcion"  id="sugerencia_opcion_2" onclick="buscarSugerencia(event)">
-                    <span id="sugerencia_span_2"></span>
+                    <span class="txt_sugerencia" id="sugerencia_span_2"></span>
                 </div>
                 <div class="opcion"  id="sugerencia_opcion_3" onclick="buscarSugerencia(event)">
-                    <span id="sugerencia_span_3"></span>
+                    <span class="txt_sugerencia" id="sugerencia_span_3"></span>
                 </div>
             </div>
         </div>
-        <img src="" id="img_prueba" alt="prueba">
     </header>
     <main>
-        <section class="sugerencias_hoy">
+        <section class="sugerencias_hoy" id="sect_sugerencias_hoy">
             <div class="caja_txt">Hoy te sugerimos:</div>
             <div class="cuerpo_sugerencias_hoy">
                 <div class = "contenedor_gif_hoy" id="contenedor_gif_hoy_1">
@@ -103,9 +105,16 @@
                 </div>
             </div>
         </section>
-        <section class="tendencias">
-            <div class="caja_txt">Tendencias</div>
+        <section class="tendencias" id="sect_tendencias">
+            <div class="caja_txt">Tendencias:</div>
             <div class= "contenedor_tendencias" id= "id_contenedor_tendencias"></div>
+        </section>
+        <section class="resultados_busqueda suppress" id="sect_resutaldos_busqueda">
+            <div class="cont_historial_busquedas" id="id_cont_historial_busquedas">
+
+            </div>
+            <div class="caja_txt" id="txt_resultados_bsuqueda"></div>
+            <img src="" id="img_prueba" alt="prueba">
         </section>
 
     </main>

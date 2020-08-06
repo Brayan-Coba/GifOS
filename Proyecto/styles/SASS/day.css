@@ -4,6 +4,10 @@
   border: 0px;
 }
 
+*:focus {
+  outline: none;
+}
+
 body {
   background-color: #fff4fd;
 }
@@ -54,6 +58,13 @@ body .boton {
   border: 1px solid #110038;
   -webkit-box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+  font-family: ChakraPetch-Regular;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 18px;
+  cursor: pointer;
 }
 
 body .boton:hover {
@@ -82,8 +93,29 @@ body .btn-elegir-tema-principal {
 }
 
 body .btn-dropdown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: 36px;
   height: 36px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .btn-forward {
+  display: none;
+  width: 36px;
+  height: 36px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body .estilos {
@@ -132,6 +164,16 @@ body .sailor-day {
   border: 1px solid #CCA6C9;
   -webkit-box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+  font-family: ChakraPetch-Regular;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+body .sailor-day::first-letter {
+  text-decoration: underline;
 }
 
 body .sailor-nigth {
@@ -142,6 +184,12 @@ body .sailor-nigth {
   border: 1px solid #808080;
   -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+  font-family: ChakraPetch-Regular;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
+  cursor: pointer;
 }
 
 body .cont-mis-gifos {
@@ -161,12 +209,16 @@ body .mis-gifos {
   line-height: 18px;
 }
 
+body .cont-mis-gifos::first-letter {
+  text-decoration: underline;
+}
+
 body .mis-gifos:hover {
   border: 1px dotted #110038;
 }
 
 body .mis-gifos:active {
-  color: #c2b5cb;
+  color: #C2B5CB;
 }
 
 body .buscar {
@@ -216,19 +268,47 @@ body .buscador {
   -webkit-box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 1px 1px 0 0 #000000;
           box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 1px 1px 0 0 #000000;
   cursor: text;
+  font-family: ChakraPetch;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
   margin-left: 2%;
   padding-left: 1%;
-  height: 2em;
-  width: 90%;
+  height: 2.5em;
+  width: 86%;
 }
 
 body .lupa_buscar {
-  background: #E6E6E6;
+  background: #F7C9F3;
   border: 1px solid #808080;
   -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
-  padding: 3px;
+  padding: 5px;
   margin-left: 1%;
+  width: 102px;
+  height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  cursor: pointer;
+}
+
+body .lupa_buscar:active {
+  background: #E6BBE2;
+  border: 1px solid #110038;
+  outline: 1px dotted #110038;
+  outline-offset: -5px;
+}
+
+body #img_lupa_buscar_nigth {
+  display: none;
 }
 
 body .txt_buscar {
@@ -240,7 +320,9 @@ body .txt_buscar {
 }
 
 body .inactivo {
+  background: #E6E6E6;
   color: #B4B4B4;
+  cursor: auto;
 }
 
 body .cuerpo_opciones {
@@ -262,11 +344,32 @@ body .opcion {
   border: 1px solid #808080;
   -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
-  width: 91.2%;
+  width: 87.6%;
   height: 2em;
   margin: 5px;
-  padding-left: 2%;
+  padding-left: 1%;
+  margin-left: 0px;
+  margin-right: 0px;
   cursor: pointer;
+}
+
+body .opcion::first-letter {
+  text-transform: capitalize;
+}
+
+body .opcion:hover {
+  background: #DBDBDB;
+  border: 1px solid #110038;
+  outline: 1px dotted #110038;
+  outline-offset: -5px;
+}
+
+body .txt_sugerencia {
+  font-family: ChakraPetch-Regular;
+  font-size: 16px;
+  color: #110038;
+  letter-spacing: 0;
+  line-height: 22px;
 }
 
 body .sugerencias_hoy {
@@ -298,7 +401,7 @@ body .cuerpo_sugerencias_hoy {
 }
 
 body .contenedor_gif_hoy {
-  margin-right: 3.6%;
+  margin-right: 3.24%;
 }
 
 body .encabezado_gif {
@@ -325,6 +428,13 @@ body .img_cerrar {
 body .gif_hoy {
   display: inline-block;
   position: absolute;
+  border: 1px solid transparent;
+}
+
+body .gif_hoy:hover {
+  outline: 1px dotted #110038;
+  outline-offset: -3px;
+  border: 1px solid #110038;
 }
 
 body .img_gif_hoy {
@@ -346,8 +456,14 @@ body .btn_ver_mas {
   letter-spacing: 0;
   text-align: center;
   line-height: 18px;
-  padding: 3px;
+  padding: 4px;
   cursor: pointer;
+}
+
+body .btn_ver_mas:hover {
+  outline: 1px dotted #110038;
+  outline-offset: -3px;
+  border: 1px solid #110038;
 }
 
 body .tendencias {
@@ -360,15 +476,60 @@ body .contenedor_tendencias {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  margin-bottom: 2%;
 }
 
 body .div_gif_tendencia {
-  margin: 1%;
+  margin: 1% 3.26% 0 0;
+  position: relative;
+  border: 1px solid transparent;
+}
+
+body .div_gif_tendencia:hover {
+  margin: 1% 3.26% 0 0;
+  position: relative;
+  outline: 1px dotted #110038;
+  outline-offset: -3px;
+  border: 1px solid #110038;
 }
 
 body .gif_tendencia {
   width: 246px;
   height: 246px;
+}
+
+body .titulo_gif {
+  display: none;
+  background-image: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
+  background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+  font-family: ChakraPetch-Bold;
+  font-size: 14px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  padding-left: 4%;
+  outline: 1px dotted #110038;
+  outline-offset: -3px;
+  border: 1px solid #110038;
+  border-top: none;
+}
+
+body .resultados_busqueda {
+  margin-left: 3%;
+}
+
+body .div_historial {
+  background: #4180F6;
+  border: 1px solid #4C2F99;
+  -webkit-box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+}
+
+body .rotate {
+  -webkit-transform: rotate(-270deg);
+          transform: rotate(-270deg);
 }
 
 body .show {

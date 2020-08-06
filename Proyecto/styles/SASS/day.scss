@@ -2,7 +2,10 @@
 padding: 0px;
 margin: 0px;
 border: 0px;
+}
 
+*:focus{
+    outline: none;
 }
 
 body{
@@ -44,95 +47,130 @@ body{
     }
 
    .boton{
-    background: #F7C9F3;
-    border: 1px solid #110038;
-    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+        background: #F7C9F3;
+        border: 1px solid #110038;
+        box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+        font-family: ChakraPetch-Regular;
+        font-size: 16px;
+        color: #110038;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 18px;
+        cursor: pointer;
    }
 
    .boton:hover{
-    background: #E6BBE2;
-    border: 1px solid #110038;
-    outline: 1px dotted #110038;
-    outline-offset: -5px;
+        background: #E6BBE2;
+        border: 1px solid #110038;
+        outline: 1px dotted #110038;
+        outline-offset: -5px;
    }
 
    .boton:active{
-    background: #E6BBE2;
-    border: 1px solid #110038;
-    outline: 1px dotted #110038;
-    outline-offset: -5px;
+        background: #E6BBE2;
+        border: 1px solid #110038;
+        outline: 1px dotted #110038;
+        outline-offset: -5px;
    }
 
    .btn-crear-guifos{
-    width: 144px;
-    height: 36px;
-    margin-right: 3%;
+        width: 144px;
+        height: 36px;
+        margin-right: 3%;
    }
 
    .btn-elegir-tema-principal{
-    width: 131px;
-    height: 36px;
+        width: 131px;
+        height: 36px;
    }
 
    .btn-dropdown{
-    width: 36px;
-    height: 36px;
+        display: flex;
+        width: 36px;
+        height: 36px;
+        justify-content: center;
+        align-items: center;
    }
-
+   .btn-forward{
+        display: none;
+        width: 36px;
+        height: 36px;
+        justify-content: center;
+        align-items: center;
+    }
    .estilos{
-    display: flex;
-    flex-direction: column;
+        display: flex;
+        flex-direction: column;
    }
 
    .btn-estilos{
-    display: flex;
-    flex-direction: row;
+        display: flex;
+        flex-direction: row;
    }
 
-   
    .sailor-estilos{
-    display: none;
-    position: absolute;
-    flex-direction: column;
-    width: 167px;
-    margin-top: 35px;
-    height: 102px;
-    align-items: center;
-    background: #E6E6E6;
-    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        width: 167px;
+        margin-top: 35px;
+        height: 102px;
+        align-items: center;
+        background: #E6E6E6;
+        box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
    }
 
    .sailor-day{
-    width: 150px;
-    height: 36px;
-    margin-top: 5%;
-    background: #FFF4FD;
-    border: 1px solid #CCA6C9;
-    box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;  
+        width: 150px;
+        height: 36px;
+        margin-top: 5%;
+        background: #FFF4FD;
+        border: 1px solid #CCA6C9;
+        box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+        font-family: ChakraPetch-Regular;
+        font-size: 16px;
+        color: #110038;
+        letter-spacing: 0;
+        line-height: 22px;
+        cursor: pointer;
+   }
+
+   .sailor-day::first-letter{
+       text-decoration: underline;
    }
 
    .sailor-nigth{
-    width: 150px;
-    height: 36px;
-    margin-top: 5%;
-    background: #F0F0F0;
-    border: 1px solid #808080;
-    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+        width: 150px;
+        height: 36px;
+        margin-top: 5%;
+        background: #F0F0F0;
+        border: 1px solid #808080;
+        box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+        font-family: ChakraPetch-Regular;
+        font-size: 16px;
+        color: #110038;
+        letter-spacing: 0;
+        line-height: 22px;
+        cursor: pointer;
    }
 
    .cont-mis-gifos{
-    align-self: center;
-    width: 6%;
-    margin-left: 1%;
+        align-self: center;
+        width: 6%;
+        margin-left: 1%;
     }
 
    .mis-gifos{
-    text-decoration: none;
-    font-family: ChakraPetch-Regular;
-    font-size: 16px;
-    color: #110038;
-    letter-spacing: 0;
-    line-height: 18px
+        text-decoration: none;
+        font-family: ChakraPetch-Regular;
+        font-size: 16px;
+        color: #110038;
+        letter-spacing: 0;
+        line-height: 18px
+    }
+
+    .cont-mis-gifos::first-letter{
+        text-decoration: underline;
     }
 
     .mis-gifos:hover{
@@ -140,7 +178,7 @@ body{
     }
 
     .mis-gifos:active{
-    color: rgb(194,181,203);
+    color: #C2B5CB;
     }
 
     .buscar{
@@ -162,31 +200,54 @@ body{
     }
 
     .cuerpo-buscador{
-    background: #E6E6E6;
-    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 0px 0 0 #FFFFFF;
-    width: 85%;
-    height: 4em;
-    display: flex;
-    align-items: center;
+        background: #E6E6E6;
+        box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 0px 0 0 #FFFFFF;
+        width: 85%;
+        height: 4em;
+        display: flex;
+        align-items: center;
     }
 
     .buscador{
-    background: #FFFFFF;
-    border: 1px solid #979797;
-    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 1px 1px 0 0 #000000;
-    cursor: text;
-    margin-left: 2%;
-    padding-left: 1%;
-    height: 2em;
-    width: 90% 
+        background: #FFFFFF;
+        border: 1px solid #979797;
+        box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 1px 1px 0 0 #000000;
+        cursor: text;
+        font-family: ChakraPetch;
+        font-size: 16px;
+        color: #110038;
+        letter-spacing: 0;
+        line-height: 22px;
+        margin-left: 2%;
+        padding-left: 1%;
+        height: 2.5em;
+        width: 86%;
     }
 
+
     .lupa_buscar{
-    background: #E6E6E6;
-    border: 1px solid #808080;
-    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
-    padding: 3px;
-    margin-left: 1%
+        background: #F7C9F3;
+        border: 1px solid #808080;
+        box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+        padding: 5px;
+        margin-left: 1%;
+        width: 102px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        cursor: pointer;
+    }
+
+    .lupa_buscar:active{
+        background: #E6BBE2;
+        border: 1px solid #110038;
+        outline: 1px dotted #110038;
+        outline-offset: -5px;
+    }
+
+    #img_lupa_buscar_nigth{
+        display: none;
     }
 
     .txt_buscar{
@@ -194,10 +255,13 @@ body{
     font-size: 16px;
     color: #110038;
     letter-spacing: 0;
-    line-height: 18px;}
+    line-height: 18px;
+    }
 
     .inactivo{
+    background: #E6E6E6;
     color: #B4B4B4;
+    cursor: auto;
     }
 
     .cuerpo_opciones{
@@ -211,14 +275,35 @@ body{
     }
 
     .opcion{
-    background: #F0F0F0;
-    border: 1px solid #808080;
-    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
-    width: 91.2%;
-    height: 2em;
-    margin: 5px;
-    padding-left: 2%;
-    cursor: pointer;
+        background: #F0F0F0;
+        border: 1px solid #808080;
+        box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+        width: 87.6%;
+        height: 2em;
+        margin: 5px;
+        padding-left: 1%;
+        margin-left: 0px;
+        margin-right: 0px;
+        cursor: pointer;
+    }
+
+    .opcion::first-letter{
+        text-transform: capitalize;
+    }
+
+    .opcion:hover{
+        background: #DBDBDB;
+        border: 1px solid #110038;
+        outline: 1px dotted #110038;
+        outline-offset: -5px;
+    }
+
+    .txt_sugerencia{
+        font-family: ChakraPetch-Regular;
+        font-size: 16px;
+        color: #110038;
+        letter-spacing: 0;
+        line-height: 22px;
     }
 
     .sugerencias_hoy{
@@ -242,7 +327,7 @@ body{
     }
 
     .contenedor_gif_hoy{
-    margin-right: 3.6%;
+    margin-right: 3.24%;
     }
     
     .encabezado_gif{
@@ -266,30 +351,43 @@ body{
     }
 
     .gif_hoy{
-    display: inline-block;
-    position: absolute;
+        display: inline-block;
+        position: absolute;
+        border: 1px solid transparent;
+    }
+
+    .gif_hoy:hover{
+        outline: 1px dotted #110038;
+        outline-offset: -3px;
+        border: 1px solid #110038;
     }
 
     .img_gif_hoy{
-    width: 246px;
-    height: 246px;
+        width: 246px;
+        height: 246px;
     }
 
     .btn_ver_mas{
-    background: #4180F6;
-    border: 1px solid #4C2F99;
-    box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
-    position: absolute;
-    left: 1em;
-    bottom: 1em;
-    font-family: ChakraPetch-Regular;
-    font-size: 14px;
-    color: #FFFFFF;
-    letter-spacing: 0;
-    text-align: center;
-    line-height: 18px;
-    padding: 3px;
-    cursor: pointer;
+        background: #4180F6;
+        border: 1px solid #4C2F99;
+        box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+        position: absolute;
+        left: 1em;
+        bottom: 1em;
+        font-family: ChakraPetch-Regular;
+        font-size: 14px;
+        color: #FFFFFF;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 18px;
+        padding: 4px;
+        cursor: pointer;
+    }
+
+    .btn_ver_mas:hover{
+        outline: 1px dotted #110038;
+        outline-offset: -3px;
+        border: 1px solid #110038;
     }
 
     .tendencias{
@@ -299,15 +397,58 @@ body{
     .contenedor_tendencias{
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 2%
     }
 
     .div_gif_tendencia{
-        margin: 1%;
+        margin: 1% 3.26% 0 0;
+        position: relative;
+        border: 1px solid transparent;
     }
 
+    .div_gif_tendencia:hover{
+        margin: 1% 3.26% 0 0;
+        position: relative;
+        outline: 1px dotted #110038;
+        outline-offset: -3px;
+        border: 1px solid #110038;
+    }
+  
+
     .gif_tendencia{
-        width: 246px;
-        height: 246px;
+    width: 246px;
+    height: 246px;
+    }
+
+    .titulo_gif{
+    display: none;
+    background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+    font-family: ChakraPetch-Bold;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    padding-left: 4%;
+    outline: 1px dotted #110038;
+    outline-offset: -3px;
+    border: 1px solid #110038;
+    border-top: none;
+    }
+
+    .resultados_busqueda{
+        margin-left: 3%;
+    }
+
+    .div_historial{
+        background: #4180F6;
+        border: 1px solid #4C2F99;
+        box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+    }
+
+    .rotate{
+        transform: rotate(-270deg);
     }
 
     .show{

@@ -1,3 +1,13 @@
+
+function cambiarPaginaCrearGifos(){
+    window.location.assign("./html/CrearGifos.html")
+}
+
+function obtenerInputBuscador(){
+    return document.getElementById("input_buscador");
+}
+
+
 /*---------------------------------------------------------------------------------
 Nombre:		    elegirTema
 Descripcion:    Agrega o quita la clase show que muestra el elemnto en pantalla
@@ -7,20 +17,36 @@ Salida:
                 .show
 ----------------------------------------------------------------------------------*/
 function elegirTema(){
-    document.getElementById("dropdown-estilos").classList.toggle("show")
+    document.getElementById("dropdown-estilos").classList.toggle("show");
+    document.getElementById("flecha_dropdown").classList.toggle("rotate");
+    document.getElementById("flecha_forward").classList.toggle("rotate");
+}
+
+
+/* cambia el estilo a diurno  */
+function clickEnEstiloDay(){
+    document.getElementById("body").classList.remove("nigth");
+    document.getElementById("flecha_dropdown").classList.toggle("rotate");
+    localStorage.setItem("sailor-nigth","false");
 }
 
 /* cambia el estilo a nocturno */
 function clickEnEstiloNigth(){
-    document.getElementById("body").classList.add("nigth")
+    document.getElementById("body").classList.add("nigth");
+    document.getElementById("flecha_forward").classList.toggle("rotate")
+    localStorage.setItem("sailor-nigth","true");
 }
 
-/* cambia el estilo a diurno  */
-function clickEnEstiloDay(){
-    document.getElementById("body").classList.remove("nigth")
+if (localStorage.getItem("sailor-nigth") == "true"){
+    document.getElementById("body").classList.add("nigth");
+    document.getElementById("flecha_forward").classList.remove("rotate");
+}
+else{
+    document.getElementById("body").classList.remove("nigth");
+    document.getElementById("flecha_dropdown").classList.add("rotate");
 }
 
-document.getElementById("input_buscador").addEventListener("input", activacionBusqueda);
+obtenerInputBuscador().addEventListener("input", activacionBusqueda);
 
 
 /*---------------------------------------------------------------------------------
@@ -43,21 +69,25 @@ function fBoTextoVacio(texto){
 
 /* cambia el estilo del boton y la imagen de la lupa entre activo e inactivo */
 function activacionBusqueda(){
-        var strInputBuscador = document.getElementById("input_buscador").value
-        
-        if (fBoTextoVacio(strInputBuscador)) {
-            document.getElementById("txt_buscar_id").classList.add("inactivo")
-            document.getElementById("lupa_buscar").src="./assets/lupa_inactive.svg"
-    
-       }
-       else {
-            document.getElementById("txt_buscar_id").classList.remove("inactivo")
-            document.getElementById("lupa_buscar").src="./assets/lupa.svg"
-       }
+    var strInputBuscador = obtenerInputBuscador().value;
+
+    if (fBoTextoVacio(strInputBuscador)) {
+        document.getElementById("busqueda").classList.add("inactivo")
+        document.getElementById("txt_buscar_id").classList.add("inactivo")
+        document.getElementById("img_lupa_buscar_day").src="./assets/lupa_inactive.svg"
+        document.getElementById("img_lupa_buscar_nigth").src="./assets/Combined Shape.svg"
+
+}
+    else {
+        document.getElementById("busqueda").classList.remove("inactivo")
+        document.getElementById("txt_buscar_id").classList.remove("inactivo")
+        document.getElementById("img_lupa_buscar_day").src="./assets/lupa.svg"
+        document.getElementById("img_lupa_buscar_nigth").src="./assets/lupa_light.svg"
+        }
 }
 
 /* La funcion de abajo es para que busque con el enter */
-document.getElementById("input_buscador").addEventListener("keydown", function(event) {
+obtenerInputBuscador().addEventListener("keydown", function(event) {
     if (event.which == 13){
         clickEnBusqueda();
     }
@@ -78,11 +108,15 @@ window.onclick = function(event) {
   }
 
 
-var api_busqueda = "https://api.giphy.com/v1/gifs/search?"
-var api_sugerencia = "https://api.giphy.com/v1/tags/related/"
-var api_trending = "https://api.giphy.com/v1/gifs/trending?"
-var api_random = "https://api.giphy.com/v1/gifs/random?"
-var apiKey = "api_key=Nj0jjM3UQ44YeJHkvgWaTMW0iFJx4Q5c"
+const cStr_API_BUSQUEDA = "https://api.giphy.com/v1/gifs/search?"
+const cStr_API_SUGERENCIA = "https://api.giphy.com/v1/tags/related/"
+const cStr_API_TRENDING = "https://api.giphy.com/v1/gifs/trending?"
+const cStr_API_RANDOM = "https://api.giphy.com/v1/gifs/random?"
+const cStr_API_KEY = "api_key=Nj0jjM3UQ44YeJHkvgWaTMW0iFJx4Q5c"
+const cNum_CANT_GIF_TENDENCIA = 12
+
+var arrHistorial = []
+var limiteArrHistorial = 10
 
 
 /*esta funcion hace peticion a la URL y ejecuta una funcion callback con la estructura
@@ -117,26 +151,71 @@ function callbackBusqueda(err,response){
 }
 
 
+function ocultarELemento(id){
+    document.getElementById(id).classList.add("suppress");
+}
+
+function mostrarELemento(id){
+    document.getElementById(id).classList.remove("suppress");
+}
+
+function generarHistorial(){
+
+}
+
+function guardarHistorial(tagBusqueda){
+    arrHistorial.unshift(tagBusqueda);
+    
+    if (arrHistorial.length>limiteArrHistorial){
+        arrHistorial.pop();
+    }
+}
+
+function pintarDivHistorial(consecutivoId,historial){
+       //obtiene el contenedor que va a tener los divs del historial
+       var contenedorDivs = document.getElementById("id_cont_historial_busquedas");
+       //genera el div que va a contener el historial
+       var contenedorHistorial = document.createElement("div");
+
+       var idDivHistorial = "id_div_historial_"+consecutivoId
+   
+       contenedorHistorial.setAttribute("class","div_historial");
+       contenedorHistorial.setAttribute("id",idDivHistorial);
+       contenedorHistorial.innerHTML = "#"+historial;
+   
+       contenedorDivs.appendChild(contenedorHistorial);
+}
+
+function modoResultadosBusqueda(){
+    var keyword = obtenerInputBuscador().value;
+    ocultarELemento("sect_sugerencias_hoy");
+    ocultarELemento("sect_tendencias");
+    mostrarELemento("sect_resutaldos_busqueda");
+    document.getElementById("txt_resultados_bsuqueda").innerHTML = keyword+" (Resultados)";
+    generarHistorial(keyword);
+}
+
 function clickEnBusqueda(){ 
-    var keyword = document.getElementById("input_buscador").value;
+    var keyword = obtenerInputBuscador().value;
     if (fBoTextoVacio(keyword)){
         return
     }
     
-    var url = api_busqueda+apiKey+"&q="+keyword;
+    var url = cStr_API_BUSQUEDA+cStr_API_KEY+"&q="+keyword;
     var img_url =""
-    respuestaServer(url,callbackBusqueda)
-    
+    respuestaServer(url,callbackBusqueda);
+    modoResultadosBusqueda()
 }
+
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-document.getElementById("input_buscador").addEventListener("input", sugerenciaBusqueda);
+obtenerInputBuscador().addEventListener("input", sugerenciaBusqueda);
 
 function sugerenciaBusqueda(){ 
-    var keyword = document.getElementById("input_buscador").value;
+    var keyword = obtenerInputBuscador().value;
     if (fBoTextoVacio(keyword)){
         document.getElementById("sugerencia_span_1").innerHTML = ""
         document.getElementById("sugerencia_span_2").innerHTML = ""
@@ -145,7 +224,7 @@ function sugerenciaBusqueda(){
         return
     }
     document.getElementById("div_cuerpo_opciones").classList.add("show")
-    var url = api_sugerencia+keyword+"?"+apiKey;
+    var url = cStr_API_SUGERENCIA+keyword+"?"+cStr_API_KEY;
 
     var xhr = new XMLHttpRequest();
     xhr.open("GET",url)
@@ -178,7 +257,7 @@ Salida:
 function buscarSugerencia(e){
     var strId = e.target.id.replace("opcion","span")
     var keyword = document.getElementById(strId).innerText
-    document.getElementById("input_buscador").value = keyword
+    obtenerInputBuscador().value = keyword
     clickEnBusqueda();
     sugerenciaBusqueda();
 }
@@ -190,7 +269,7 @@ function cerrarGif(e){
 
 function btnVerMas(e){
     var strId = e.target.id
-    var url = api_busqueda+apiKey+"&q="+strId;
+    var url = cStr_API_BUSQUEDA+cStr_API_KEY+"&q="+strId;
     var img_url =""
     respuestaServer(url,function(err,response){
         var count = (response.pagination.count)
@@ -200,48 +279,111 @@ function btnVerMas(e){
         })
 }
 
-var contador = 0
-var contador2 = 0
 
-function generarDivTendencias(consecutivoId) {
-   var contenedorDivs = document.getElementById("id_contenedor_tendencias");
-   var contenedorGif = document.createElement("div");
-   var gif = document.createElement("img")
-   
-
-   contenedorGif.setAttribute("class","div_gif_tendencia");
-   contenedorGif.setAttribute("id","id_div_tendencia_"+consecutivoId);
-   gif.setAttribute("class","gif_tendencia")
-   gif.setAttribute("id","id_gif_tendencia_"+consecutivoId)
-
-   contenedorDivs.appendChild(contenedorGif);
-   contenedorGif.appendChild(gif)
+function generarTituloGif(titulo,consecutivoId){
+    var tituloGif = document.createElement("div")
+    tituloGif.innerText = titulo
+    // el return se lo devulve a generarDivTendencia
+    tituloGif.setAttribute("class","titulo_gif")
+    tituloGif.setAttribute("id","id_titulo_tendencia_"+consecutivoId)
+    return tituloGif
 }
 
-/* por alguna razon contador2 dentro y fuera de respuesta es diferente, pero srtContador no,
-por eso el machetazo de pasarlo a string y luego a numero otra vez */
 
-function insertarGifTendencia(){
-    var url = api_trending+apiKey;
+function existeClaseEnElemento(clase,elemento){
+    var boolExiste;
+    boolExiste = Array.from(elemento.classList).some(cl=> cl == clase);
+    return boolExiste;
+}
+
+function verTituloGif(e){
+    var hijosDivGif = e.target.parentElement.childNodes
+    var titulo= Array.from(hijosDivGif).find( function(elem, index){ 
+        return existeClaseEnElemento("titulo_gif",elem)
+    })
+
+    if (titulo && !existeClaseEnElemento("show",titulo)){
+        titulo.classList.add("show")
+    }
+}
+
+function quitarTituloGif(e){
+    var hijosDivGif = e.target.parentElement.childNodes
+    var titulo= Array.from(hijosDivGif).find( function(elem) {
+        return existeClaseEnElemento("titulo_gif",elem)
+    })
+    
+    if (titulo && existeClaseEnElemento("show",titulo)){
+        titulo.classList.remove("show")
+    }
+}
+
+
+
+function generarDivTendencia(url,consecutivoId,titulo){
+    //obtiene el contenedor que va a tener los divs de los gifs
+    var contenedorDivs = document.getElementById("id_contenedor_tendencias");
+    //genera el div que va a contener el gif y el titulo
+    var contenedorGifyTitulo = document.createElement("div");
+    //genera el div que va a contener el gif
+    var contenedorGif = document.createElement("div");
+    //genera el img que contiene el gif
+    var gif = document.createElement("img");
+    
+    var tituloGif = generarTituloGif(titulo,consecutivoId);
+    var idDivGif = "id_div_tendencia_"+consecutivoId
+    var idGif = "id_gif_tendencia_"+consecutivoId
+
+    contenedorGif.setAttribute("class","div_gif_tendencia");
+    contenedorGif.setAttribute("id",idDivGif);
+    contenedorGif.setAttribute("class","div_gif_tendencia");
+    contenedorGif.setAttribute("id",idDivGif);
+    contenedorGif.addEventListener("mouseover",verTituloGif);
+    contenedorGif.addEventListener("mouseout",quitarTituloGif);
+    gif.setAttribute("class","gif_tendencia");
+    gif.setAttribute("id",idGif);
+    
+
+    contenedorDivs.appendChild(contenedorGif);
+    contenedorGif.appendChild(gif);
+    contenedorGif.appendChild(tituloGif);
+
+    document.getElementById(idGif).src = url;
+}
+
+/*---------------------------------------------------------------------------------
+Nombre:		    procesarTendencias
+Descripcion:    toma la respuesta del servidor y anaiza si hay error, si es correcta
+                recorre la respuesta y manda a crear la vista para los gif obtenidos
+----------------------------------------------------------------------------------*/
+
+function procesarTendencias(err,response){
+
+    if (err){
+        alert("error, estado de la respuesta "+err)
+        return
+    }
+    var titulo_url =""
     var img_url =""
-    var strContador = contador.toString()
-    console.log(strContador)
-    console.log(contador)
-    respuestaServer(url,function(err,response){ 
-        console.log(contador)
-        console.log(strContador)
-        var numContador = parseInt(strContador)
-        img_url = (response.data[numContador].images.original.url)
-        document.getElementById("id_gif_tendencia_"+strContador).src= img_url})
+    var contador  = 0
+    for (contador; contador<cNum_CANT_GIF_TENDENCIA;contador++){
+        img_url = (response.data[contador].images.original.url)
+        titulo_url = (response.data[contador].title)
+        generarDivTendencia(img_url,contador,titulo_url)
+    }
 }
 
-function divsBase(){
-for (contador; contador<12;contador++){
-    generarDivTendencias(contador);
-    insertarGifTendencia();
-}
+/*---------------------------------------------------------------------------------
+Nombre:		    crearGifTendencia
+Descripcion:    Arma la URL solicita respuesta a servidor y la manda a procesar
+----------------------------------------------------------------------------------*/
+
+function crearGifTendencia(){
+    var url = cStr_API_TRENDING+cStr_API_KEY;
+    //obtiene la data de las tendencias del servidor
+    respuestaServer(url,procesarTendencias)
 }
 
-divsBase();
+crearGifTendencia();
 
 

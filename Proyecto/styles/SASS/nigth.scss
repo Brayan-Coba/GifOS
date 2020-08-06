@@ -1,6 +1,10 @@
 #body.nigth{
     background: rgb(17, 0, 56) 100%;
 
+    .saludo{
+        background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+    }
+
     .logo-dia-day{
         display: none;
     }
@@ -9,5 +13,96 @@
         display: block;
         margin: 3% 5%;
     }
-
+    .boton{
+        background: #EE3EFE;
+        box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+        color: #FFFFFF;
     }
+
+    .btn-dropdown{
+        display: none;
+    }
+    .btn-forward{
+        display: flex;
+    }
+
+    #flecha_forward{
+        filter: invert(100%);
+    }
+    .sailor-estilos{
+        background:  #B4B4B4;
+    }
+    .sailor-day{
+        background: #CCCCCC;
+        border: 1px solid #808080;
+        box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+    }
+
+    .sailor-nigth{
+        background: #2E32FB;
+        border: 1px solid rgba(51,53,143,0.20);
+        box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+        color: #FFFFFF;
+    }
+
+    .sailor-day::first-letter{
+        text-decoration: none;
+    }
+
+    .sailor-nigth::first-letter{
+        text-decoration: underline;
+    }
+
+    .cont-mis-gifos::first-letter{
+        text-decoration: none;
+    }
+    .mis-gifos{
+        color: #FFFFFF;
+    }
+
+    .mis-gifos:hover{
+        border: 1px dotted #FFFFFF;
+    }
+
+    .mis-gifos:active{
+        color: #6D6485;
+    }
+
+    .encabezado-buscador{
+        background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+    }
+
+    .cuerpo-buscador{
+        background: #B4B4B4;
+        box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 0px 0 0 #FFFFFF;
+    }
+
+    #img_lupa_buscar_day{
+        display: none;
+    }
+
+    #img_lupa_buscar_nigth{
+        display: flex;
+    }
+
+    .lupa_buscar{
+       background: #EE3EFE ;
+    }
+
+    .txt_buscar{
+        color: #FFFFFF;
+    }
+
+    .cuerpo_opciones{
+        background: #B4B4B4;
+    }
+
+    .opcion{
+        background: #CCCCCC;
+    }
+
+    .inactivo{
+        background: #B4B4B4;
+        color: #8F8F8F;
+    }
+}
