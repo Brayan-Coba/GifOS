@@ -14,8 +14,8 @@
         <div class="saludo"><p class="txt-saludo">¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</p></div>
         <div class="encabezado">
             <div class="logo-gifOF">
-                <a href="../index.html"><img src="./assets/gifOF_logo.png" alt="logo de gifOS" class="logo-dia-day"></a>
-                <a href="../index.html"><img src="./assets/gifOF_logo_dark.png" alt="logo de gifOS" class="logo-noche-day"></a>
+                <a href="./index.html"><img src="./assets/gifOF_logo.png" alt="logo de gifOS" class="logo-dia-day"></a>
+                <a href="./index.html"><img src="./assets/gifOF_logo_dark.png" alt="logo de gifOS" class="logo-noche-day"></a>
             </div>
             <div class="contenedor_botones">
                 <button class= "boton btn-crear-guifos" type="button" onclick="cambiarPaginaCrearGifos()">Crear Guifos</button>
@@ -32,17 +32,16 @@
                     </div>
             </div> 
             <div class="cont-mis-gifos">
-                <a class="mis-gifos" href="">Mis Gifos</a>
+                <span class="mis-gifos" id="id_mis_gifos" onclick="modoMisGifos()">Mis Gifos</span>
             </div> 
-               
         </div>
-        <div class="buscar">
+        <div class="buscar" id="id_buscar">
             <div class="encabezado-buscador">Buscar</div>
             <div class="cuerpo-buscador">
                 <input type="text" class="buscador" id="input_buscador" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
                 <button class="lupa_buscar inactivo" id="busqueda" onclick="clickEnBusqueda()">
                     <img src="./assets/lupa_inactive.svg" id="img_lupa_buscar_day" alt="lupa de busqueda">
-                    <img src="./assets/Combined Shape.svg" id="img_lupa_buscar_nigth" alt="lupa de busqueda">
+                    <img src="./assets/Combined_Shape.svg" id="img_lupa_buscar_nigth" alt="lupa de busqueda">
                     <span class="txt_buscar inactivo" id="txt_buscar_id">Buscar</span>
                 </button>
             </div>
@@ -61,12 +60,14 @@
     </header>
     <main>
         <section class="sugerencias_hoy" id="sect_sugerencias_hoy">
-            <div class="caja_txt">Hoy te sugerimos:</div>
+            <div class="caja_txt">
+                <h2 class="subtitulo">Hoy te sugerimos:</h2>
+            </div>
             <div class="cuerpo_sugerencias_hoy">
                 <div class = "contenedor_gif_hoy" id="contenedor_gif_hoy_1">
                     <div class="encabezado_gif">
                         <span class= "txt_encabezado_gif">#Mr.Robot</span>
-                        <img src="./assets/button close.svg" class="img_cerrar" id="cerrar_gif_hoy_1" onclick="cerrarGif(event)" alt="cerrar gif">
+                        <img src="./assets/button_close.svg" class="img_cerrar" id="cerrar_gif_hoy_1" onclick="cerrarGif(event)" alt="cerrar gif">
                     </div>
                     <div class="gif_hoy">
                         <img src="https://media3.giphy.com/media/gpF1hNYWOFvLa/giphy.gif" class="img_gif_hoy" id="Mr.Robot_gif" alt="GIF Eliot Alderson">
@@ -76,7 +77,7 @@
                 <div class = "contenedor_gif_hoy" id="contenedor_gif_hoy_2">
                     <div class="encabezado_gif">
                         <span class= "txt_encabezado_gif">#HunterxHunter</span>
-                        <img src="./assets/button close.svg" class="img_cerrar" id="cerrar_gif_hoy_2" onclick="cerrarGif(event)" alt="cerrar gif">
+                        <img src="./assets/button_close.svg" class="img_cerrar" id="cerrar_gif_hoy_2" onclick="cerrarGif(event)" alt="cerrar gif">
                     </div>
                     <div class="gif_hoy">
                         <img src="https://media3.giphy.com/media/8DTnuPhxv0m4w/giphy.gif" class="img_gif_hoy" id="HunterxHunter_gif" alt="GIF Killua">
@@ -86,7 +87,7 @@
                 <div class = "contenedor_gif_hoy" id="contenedor_gif_hoy_3">
                     <div class="encabezado_gif">
                         <span class= "txt_encabezado_gif">#Seinfield</span>
-                        <img src="./assets/button close.svg" class="img_cerrar" id="cerrar_gif_hoy_3" onclick="cerrarGif(event)" alt="cerrar gif">
+                        <img src="./assets/button_close.svg" class="img_cerrar" id="cerrar_gif_hoy_3" onclick="cerrarGif(event)" alt="cerrar gif">
                     </div>
                     <div class="gif_hoy">
                         <img src="https://media2.giphy.com/media/hMYHdcMGUHVlu/giphy.gif" class="img_gif_hoy" id="Seinfield_gif" alt="GIF Seinfield y amigos en prision">
@@ -96,7 +97,7 @@
                 <div class = "contenedor_gif_hoy" id="contenedor_gif_hoy_4">
                     <div class="encabezado_gif">
                         <span class= "txt_encabezado_gif">#Nyan</span>
-                        <img src="./assets/button close.svg" class="img_cerrar" id="cerrar_gif_hoy_4" onclick="cerrarGif(event)" alt="cerrar gif">
+                        <img src="./assets/button_close.svg" class="img_cerrar" id="cerrar_gif_hoy_4" onclick="cerrarGif(event)" alt="cerrar gif">
                     </div>
                     <div class="gif_hoy">
                         <img src="https://media1.giphy.com/media/vSshnLWTe7W9y/giphy.gif" class="img_gif_hoy" id="Nyan_gif" alt="Nyaa cat">
@@ -106,7 +107,9 @@
             </div>
         </section>
         <section class="tendencias" id="sect_tendencias">
-            <div class="caja_txt">Tendencias:</div>
+            <div class="caja_txt">
+                <h2 class="subtitulo">Tendencias:</h2>
+            </div>
             <div class= "contenedor_tendencias" id= "id_contenedor_tendencias"></div>
         </section>
         <section class="resultados_busqueda suppress" id="sect_resutaldos_busqueda">
@@ -114,9 +117,18 @@
 
             </div>
             <div class="caja_txt" id="txt_resultados_bsuqueda"></div>
-            <img src="" id="img_prueba" alt="prueba">
-        </section>
+            <div class="contenedor_resutaldos_busqueda" id="id_contenedor_resutaldos_busqueda">
 
+            </div>
+        </section>
+        <section class="mis_gifos suppress" id="sect_mis_gifos">
+            <div class="mis_gifos" id="cont_mis_gifos">
+                <div class="caja_txt">
+                    <h2 class="subtitulo">Mis Guifos</h2>
+                </div>
+                <div class= "contenedor_mis_gifos" id= "id_contenedor_mis_gifos"></div>
+            </div>
+        </section>
     </main>
 <script src="./scripts/index.js"></script>
 </body>

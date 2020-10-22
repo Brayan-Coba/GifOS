@@ -46,6 +46,15 @@ else{
     document.getElementById("flecha_dropdown").classList.add("rotate");
 }
 
+function modoMisGifos(){
+    document.getElementById("id_buscar").classList.add("suppress")
+    document.getElementById("sect_sugerencias_hoy").classList.add("suppress")
+    document.getElementById("sect_tendencias").classList.add("suppress")
+    document.getElementById("sect_resutaldos_busqueda").classList.add("suppress")
+    document.getElementById("sect_mis_gifos").classList.remove("suppress")
+    document.getElementById("id_mis_gifos").style.color = "#C2B5CB"
+}
+
 obtenerInputBuscador().addEventListener("input", activacionBusqueda);
 
 
@@ -75,7 +84,7 @@ function activacionBusqueda(){
         document.getElementById("busqueda").classList.add("inactivo")
         document.getElementById("txt_buscar_id").classList.add("inactivo")
         document.getElementById("img_lupa_buscar_day").src="./assets/lupa_inactive.svg"
-        document.getElementById("img_lupa_buscar_nigth").src="./assets/Combined Shape.svg"
+        document.getElementById("img_lupa_buscar_nigth").src="./assets/Combined_Shape.svg"
 
 }
     else {
@@ -114,6 +123,7 @@ const cStr_API_TRENDING = "https://api.giphy.com/v1/gifs/trending?"
 const cStr_API_RANDOM = "https://api.giphy.com/v1/gifs/random?"
 const cStr_API_KEY = "api_key=Nj0jjM3UQ44YeJHkvgWaTMW0iFJx4Q5c"
 const cNum_CANT_GIF_TENDENCIA = 12
+const cStr_LIMITE_BUSQUEDA = "&limit=12"
 
 var arrHistorial = []
 var limiteArrHistorial = 10
@@ -136,20 +146,51 @@ function respuestaServer(url,callback){
     xhr.send();
 }
 
-function callbackBusqueda(err,response){
-    
-    var count = (response.pagination.count)
-    var indice = getRandomInt(0,count);
-
-    if (count == 0){
-        img_url = "https://media2.giphy.com/media/9J7tdYltWyXIY/giphy.gif"
+function contarDivBusqueda(err,response,count){
+    //obtiene el contenedor que va a tener los divs de resultados de busqueda
+    var contenedorDivs = document.getElementById("id_contenedor_resutaldos_busqueda");
+    contenedorDivs.innerHTML = ""
+    var contador  = 0
+    for (contador; contador<count;contador++){
+        img_url = (response.data[contador].images.original.url)
+        pintarDivBusqueda(contenedorDivs,img_url,contador,)
     }
-    else {
-        img_url = (response.data[indice].images.original.url)
-    }   
-    document.getElementById("img_prueba").src= img_url     
 }
 
+function pintarDivBusqueda(contenedorDivs,img_url,contador,){
+    //genera el div que va a contener el historial
+    var contenedorDivBusqueda = document.createElement("div");
+    var Gif = document.createElement("img");
+    var idDivBusqueda = "id_div_busqueda_"+contador;
+    var idGifBusqueda = "id_gif_busqueda_"+contador;
+
+    contenedorDivBusqueda.setAttribute("class","div_busqueda");
+    contenedorDivBusqueda.setAttribute("id",idDivBusqueda);
+    Gif.setAttribute("class","gif_busqueda")
+    Gif.setAttribute("id",idGifBusqueda)
+
+    contenedorDivs.appendChild(contenedorDivBusqueda);
+    contenedorDivBusqueda.appendChild(Gif);
+
+    document.getElementById(idGifBusqueda).src = img_url;
+    };
+
+function generarDivBusqueda(err,response){
+    
+    var count = (response.pagination.count)
+    if (count == 0){
+        img_url = "https://media2.giphy.com/media/9J7tdYltWyXIY/giphy.gif";
+        var contenedorDivs = document.getElementById("id_contenedor_resutaldos_busqueda");
+        contenedorDivs.innerHTML = ""
+        var contador = 0;
+        pintarDivBusqueda(contenedorDivs,img_url,contador);
+    }
+
+    else {
+        contarDivBusqueda(err,response,count);
+    }
+    
+}
 
 function ocultarELemento(id){
     document.getElementById(id).classList.add("suppress");
@@ -159,8 +200,9 @@ function mostrarELemento(id){
     document.getElementById(id).classList.remove("suppress");
 }
 
-function generarHistorial(){
-
+function generarHistorial(keyword){   
+    guardarHistorial(keyword);
+    pintarDivHistorial();
 }
 
 function guardarHistorial(tagBusqueda){
@@ -171,19 +213,30 @@ function guardarHistorial(tagBusqueda){
     }
 }
 
-function pintarDivHistorial(consecutivoId,historial){
-       //obtiene el contenedor que va a tener los divs del historial
-       var contenedorDivs = document.getElementById("id_cont_historial_busquedas");
-       //genera el div que va a contener el historial
-       var contenedorHistorial = document.createElement("div");
 
-       var idDivHistorial = "id_div_historial_"+consecutivoId
-   
-       contenedorHistorial.setAttribute("class","div_historial");
-       contenedorHistorial.setAttribute("id",idDivHistorial);
-       contenedorHistorial.innerHTML = "#"+historial;
-   
-       contenedorDivs.appendChild(contenedorHistorial);
+function pintarDivHistorial(){
+    //obtiene el contenedor que va a tener los divs del historial
+    var contenedorDivs = document.getElementById("id_cont_historial_busquedas");
+    contenedorDivs.innerHTML = ""
+
+    arrHistorial.forEach( function (element,index) {
+        //genera el div que va a contener el historial
+        var contenedorHistorial = document.createElement("div");
+        var idDivHistorial = "id_div_historial_"+index
+
+        contenedorHistorial.setAttribute("class","div_historial");
+        contenedorHistorial.setAttribute("id",idDivHistorial);
+        contenedorHistorial.innerHTML = "#"+element;
+        contenedorHistorial.addEventListener("click",function () {
+            obtenerInputBuscador().value = element;
+            clickEnBusqueda();
+            activacionBusqueda();
+            // arrHistorial.splice(arrHistorial.indexOf(element), 1)
+        });
+        contenedorHistorial.addEventListener
+    
+        contenedorDivs.appendChild(contenedorHistorial);
+    });
 }
 
 function modoResultadosBusqueda(){
@@ -191,20 +244,42 @@ function modoResultadosBusqueda(){
     ocultarELemento("sect_sugerencias_hoy");
     ocultarELemento("sect_tendencias");
     mostrarELemento("sect_resutaldos_busqueda");
+    document.getElementById("txt_resultados_bsuqueda").classList.add("subtitulo")
     document.getElementById("txt_resultados_bsuqueda").innerHTML = keyword+" (Resultados)";
     generarHistorial(keyword);
 }
 
-function clickEnBusqueda(){ 
+var offsetAPedir = 0
+
+function validarBusquedaIgualAnterior(){
+    if (arrHistorial.length>0){
+    return arrHistorial[0] == obtenerInputBuscador().value;
+    }
+}
+
+
+function clickEnBusqueda(){
     var keyword = obtenerInputBuscador().value;
+
     if (fBoTextoVacio(keyword)){
         return
     }
-    
-    var url = cStr_API_BUSQUEDA+cStr_API_KEY+"&q="+keyword;
-    var img_url =""
-    respuestaServer(url,callbackBusqueda);
-    modoResultadosBusqueda()
+
+    else if (validarBusquedaIgualAnterior() == true){
+        offsetAPedir = offsetAPedir + 12
+        var url = cStr_API_BUSQUEDA+cStr_API_KEY+cStr_LIMITE_BUSQUEDA+"&offset="+offsetAPedir+"&q="+keyword;
+        var img_url ="" 
+    }
+
+    else{
+        var url = cStr_API_BUSQUEDA+cStr_API_KEY+cStr_LIMITE_BUSQUEDA+"&q="+keyword;
+        var img_url =""
+        offsetAPedir = 0
+    }
+
+    respuestaServer(url,generarDivBusqueda);
+    modoResultadosBusqueda();
+
 }
 
 
@@ -273,7 +348,7 @@ function btnVerMas(e){
     var img_url =""
     respuestaServer(url,function(err,response){
         var count = (response.pagination.count)
-        var indice = getRandomInt(0,count);  
+        var indice = getRandomInt(0,count);
             img_url = (response.data[indice].images.original.url)
             document.getElementById(strId+"_gif").src= img_url
         })
@@ -318,13 +393,9 @@ function quitarTituloGif(e){
     }
 }
 
-
-
 function generarDivTendencia(url,consecutivoId,titulo){
     //obtiene el contenedor que va a tener los divs de los gifs
     var contenedorDivs = document.getElementById("id_contenedor_tendencias");
-    //genera el div que va a contener el gif y el titulo
-    var contenedorGifyTitulo = document.createElement("div");
     //genera el div que va a contener el gif
     var contenedorGif = document.createElement("div");
     //genera el img que contiene el gif
@@ -334,8 +405,6 @@ function generarDivTendencia(url,consecutivoId,titulo){
     var idDivGif = "id_div_tendencia_"+consecutivoId
     var idGif = "id_gif_tendencia_"+consecutivoId
 
-    contenedorGif.setAttribute("class","div_gif_tendencia");
-    contenedorGif.setAttribute("id",idDivGif);
     contenedorGif.setAttribute("class","div_gif_tendencia");
     contenedorGif.setAttribute("id",idDivGif);
     contenedorGif.addEventListener("mouseover",verTituloGif);
@@ -384,6 +453,37 @@ function crearGifTendencia(){
     respuestaServer(url,procesarTendencias)
 }
 
+
 crearGifTendencia();
 
+function cargarLocalStorge(){
+    for ( i=0; i < localStorage.length; i++){
+        key = localStorage.key(i)
+        valor = localStorage.getItem(key)
+        try{
+            objGif = JSON.parse(valor)
+            url = objGif.data.images.original.url
+            // console.log("esta es la URL "+url+typeof(objGif))
 
+            var contGifLocal = document.getElementById("id_contenedor_mis_gifos")
+            var divGifLocal = document.createElement("div")
+            var gifLocal = document.createElement("img")
+            var idDivGifLocal = "id_div_gif_local_"+i
+            var idGifLocal = "id_gif_local_"+i
+
+            divGifLocal.setAttribute("class","div_gif_local")
+            divGifLocal.setAttribute("id",idDivGifLocal)
+            gifLocal.setAttribute("class","gif_local")
+            gifLocal.setAttribute("id",idGifLocal)
+
+            contGifLocal.appendChild(divGifLocal)
+            divGifLocal.appendChild(gifLocal)
+
+            document.getElementById(idGifLocal).src = url}
+        catch{
+            // console.log("no es un objeto")
+        }
+
+    }
+}
+cargarLocalStorge();

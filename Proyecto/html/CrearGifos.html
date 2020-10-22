@@ -16,9 +16,105 @@
         <div class="encabezado">
             <div class="cont_flecha_volver">
                 <a href="../index.html"><img src="../assets/arrow.svg" alt="flecha para volver al menu principal" class="flecha_volver"></a>
+            </div>
             <div class="logo-gifOF">
                 <a href="../index.html"><img src="../assets/gifOF_logo.png" alt="logo de gifOS" class="logo-dia-day"></a>
                 <a href="../index.html"><img src="../assets/gifOF_logo_dark.png" alt="logo de gifOS" class="logo-noche-day"></a>
             </div>
+        </div>
     </header>
+    <main>
+        <section class="crear_y_grabar_guifos">
+            <div class="cont_crear_gifos" id="id_cont_crear_gifos">
+                <div class="div_crear_gifos">
+                    <div class="encabezado_crear_y_grabar_gifos encabezado_crear_gifos">
+                        <span class="txt_encabezado_crear_y_grabar_gif" id="id_txt_encabezado_crear_y_grabar_gif">Crear Guifos</span>
+                        <img src="../assets/button_close.svg" class="img_cerrar suppress" id="btn_cerrar" onclick="recargarPagina()" alt="boton cerrar">
+                    </div>
+                    <div class="cuerpo_crear_y_grabar_gifos cuerpo_crear_gifos" id="id_cuerpo_crear_y_grabar_gifos">
+                        <div class="cuerpo_crear_gifos_top">
+                            <div class="cuerpo_crear_gifos_top_img">
+                                <img src="../assets/window_img.png" alt="imagen de ventana generica">
+                            </div>
+                            <div class="cuerpo_crear_gifos_top_titulo"> <strong>Aquí podrás crear tus propios guifos</strong></div>
+                        </div>
+                        <div class="cuerpo_crear_gifos_mid">
+                            <br> Crear tu <b><i>guifo</i></b> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos personalizados. Los pasos para crear tu guifo son:<br>
+                            <br> <b>1)</b> Dar permisos de acceso a la cámara (sólo por el tiempo de uso)<br>
+                            <br> <b>2)</b> Capturar tu momento guifo<br>
+                            <br> <b>3)</b> Revisar el momento<br>
+                            <br> <b>4)</b> Listo para subir y compartir!<br>
+                            <br>¿Quieres comenzar a crear tu <b><i>guifo</i></b> ahora?<br>
+                        </div>
+                        <div class="cuerpo_crear_gifos_bot">
+                            <button class="boton btn_cancelar" type="button" onclick="cambiarPaginaIndex()">Cancelar</button>
+                            <button class="boton btn_comenzar" type="button" onclick="ocultarCrearGifos()">Comenzar</button>
+                        </div>
+                    </div>
+                    <div class="cuerpo_crear_y_grabar_gifos cuerpo_crear_gifos suppress" id="id_cuerpo_gifo_exitoso">
+                        <div class="cuerpo_gifo_exitoso_top">
+                            <div class="cuerpo_gifo_exitoso_top_gif">
+                                <img src="" class="prev_gif_subido" id="id_prev_gif_subido" alt="">
+                            </div>
+                            <div class="cuerpo_gifo_exitoso_top_botones">
+                                <span class="txt_gifo_creado" >Guifo creado con éxito</span>
+                                <button class="boton btn_copiar_url inactivo" id="id_btn_copiar_url" onclick="copiarEnPortapapeles()">Copiar Enlace Guifo</button>
+                                <a class="boton btn_descargar_gif" id="id_btn_descargar_gif" download="gifGenerico.gif" >Descargar Guifo</a>
+                            </div>
+                        </div>
+                        <div class="cuerpo_gifo_exitoso_bot">
+                            <button class="boton btn_final" onclick="recargarPagina()">Listo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grabar_gifos suppress" id="id_grabar_gifos">
+                <div class="encabezado_crear_y_grabar_gifos encabezado_grabar_gifos">
+                    <span class="txt_encabezado_crear_y_grabar_gif" id="txt_estado_camara"> Un Chequeo Antes de Empezar</span>
+                    <img src="../assets/button_close.svg" class="img_cerrar" onclick="recargarPagina()" alt="boton cerrar">
+                </div>
+                <div class="cuerpo_crear_y_grabar_gifos" >
+                    <div class="cuerpo_grabar_gifos">
+                        <p class="txt_cargando suppress" id="id_cargando">Cargando...</p>
+                        <video  src="" class="video_gifos" id="id_video_gifos"></video>
+                        <img src="" class="captar_gif suppress" id="id_captar_gif" alt="">
+                        <img src="" class="prev_gif suppress" id="id_prev_gif" alt="">
+                        <div class="cont_subir_gifos suppress" id="id_cont_subir_gifos">
+                            <img src="../assets/globe_img.png" class="img_globo_terraqueo" alt="imagen de globo terraqueo">
+                            <span class="txt_subiendo_gifo">Estamos subiendo tu guifo…</span>
+                            <div class="cuerpo_barra_progreso barra_subir_gifos">
+                                <div class="carga_barra_progreso" id="id_carga_barra_subir"></div>
+                            </div>
+                            <span class="txt_espera_subir_gifos">Tiempo restante: <span class="tachado">38 años</span> algunos minutos</span>
+                        </div>
+                    </div>
+                    <div class="botones_grabar_gifos">
+                        <div class="cronometro suppress" id="id_cronometro"></div>
+                        <div class="cont_barra_progreso suppress" id="id_cont_barra_progreso">
+                            <button class="boton forward_barra_progreso" id="id_btn_barra_progreso" onclick="animarProgreso(divProgreso)"><img src="../assets/forward.svg" alt="flecha de progreso"></button>
+                            <div class="cuerpo_barra_progreso" id="cuerpo_barra_progreso">
+                                <div class="carga_barra_progreso" id="id_carga_barra_progreso"></div>
+                            </div>
+                        </div>
+                        <button class="boton btn_camara" id="id_btn_camara" onclick="grabarVideo()"><img src="../assets/camera.svg" alt="camara grabar gif"></button>
+                        <button class="boton btn_capturar" id="id_btn_capturar" onclick="grabarVideo()">Capturar</button>
+                        <button class="boton btn_recording suppress" id="id_btn_recording" onclick="pausarVideo()"><img src="../assets/recording.svg" alt="camara grabar gif"></button>
+                        <button class="boton btn_listo suppress" id="id_btn_listo" onclick="pausarVideo()">Listo</button>
+                        <button class="boton btn_repetir suppress" id="id_btn_repetir" onclick="repetirVideo()">Repetir Captura</button>
+                        <button class="boton btn_subir suppress" id="id_btn_subir" onclick="subirVideo()">Subir Gifo</button>
+                        <button class="boton btn_cancelar suppress" id="id_btn_cancelar" onclick="cancelarVideo()"> Cancelar </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mis_gifos" id="sect_mis_gifos">
+            <section class="mis_gifos" id="cont_mis_gifos">
+                <div class="caja_txt">Mis Guifos</div>
+                <div class= "contenedor_mis_gifos" id= "id_contenedor_mis_gifos"></div>
+            </section>
+        </section>
+    </main>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="../scripts/CrearGifos.js"></script>
+</body>
 
