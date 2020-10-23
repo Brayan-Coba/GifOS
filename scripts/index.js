@@ -1,4 +1,3 @@
-
 function cambiarPaginaCrearGifos(){
     window.location.assign("./html/CrearGifos.html")
 }
@@ -25,24 +24,24 @@ function elegirTema(){
 
 /* cambia el estilo a diurno  */
 function clickEnEstiloDay(){
-    document.getElementById("body").classList.remove("nigth");
+    document.getElementById("body").classList.remove("night");
     document.getElementById("flecha_dropdown").classList.toggle("rotate");
-    localStorage.setItem("sailor-nigth","false");
+    localStorage.setItem("sailor-night","false");
 }
 
 /* cambia el estilo a nocturno */
-function clickEnEstiloNigth(){
-    document.getElementById("body").classList.add("nigth");
+function clickEnEstilonight(){
+    document.getElementById("body").classList.add("night");
     document.getElementById("flecha_forward").classList.toggle("rotate")
-    localStorage.setItem("sailor-nigth","true");
+    localStorage.setItem("sailor-night","true");
 }
 
-if (localStorage.getItem("sailor-nigth") == "true"){
-    document.getElementById("body").classList.add("nigth");
+if (localStorage.getItem("sailor-night") == "true"){
+    document.getElementById("body").classList.add("night");
     document.getElementById("flecha_forward").classList.remove("rotate");
 }
 else{
-    document.getElementById("body").classList.remove("nigth");
+    document.getElementById("body").classList.remove("night");
     document.getElementById("flecha_dropdown").classList.add("rotate");
 }
 
@@ -84,14 +83,14 @@ function activacionBusqueda(){
         document.getElementById("busqueda").classList.add("inactivo")
         document.getElementById("txt_buscar_id").classList.add("inactivo")
         document.getElementById("img_lupa_buscar_day").src="./assets/lupa_inactive.svg"
-        document.getElementById("img_lupa_buscar_nigth").src="./assets/Combined_Shape.svg"
+        document.getElementById("img_lupa_buscar_night").src="./assets/Combined_Shape.svg"
 
 }
     else {
         document.getElementById("busqueda").classList.remove("inactivo")
         document.getElementById("txt_buscar_id").classList.remove("inactivo")
         document.getElementById("img_lupa_buscar_day").src="./assets/lupa.svg"
-        document.getElementById("img_lupa_buscar_nigth").src="./assets/lupa_light.svg"
+        document.getElementById("img_lupa_buscar_night").src="./assets/lupa_light.svg"
         }
 }
 

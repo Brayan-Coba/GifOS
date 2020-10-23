@@ -1,55 +1,55 @@
-#body.nigth {
+#body.night {
   background: #110038 100%;
 }
 
-#body.nigth .saludo {
+#body.night .saludo {
   background-image: -webkit-gradient(linear, right top, left top, from(#EE3EFE), to(#2E32FB));
   background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
 }
 
-#body.nigth .logo-dia-day {
+#body.night .logo-dia-day {
   display: none;
 }
 
-#body.nigth .logo-noche-day {
+#body.night .logo-noche-day {
   display: block;
   margin: 3% 5%;
 }
 
-#body.nigth .boton {
+#body.night .boton {
   background: #EE3EFE;
   -webkit-box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
   color: #FFFFFF;
 }
 
-#body.nigth .btn-dropdown {
+#body.night .btn-dropdown {
   display: none;
 }
 
-#body.nigth .btn-forward {
+#body.night .btn-forward {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-#body.nigth #flecha_forward {
+#body.night #flecha_forward {
   -webkit-filter: invert(100%);
           filter: invert(100%);
 }
 
-#body.nigth .sailor-estilos {
+#body.night .sailor-estilos {
   background: #B4B4B4;
 }
 
-#body.nigth .sailor-day {
+#body.night .sailor-day {
   background: #CCCCCC;
   border: 1px solid #808080;
   -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
 }
 
-#body.nigth .sailor-nigth {
+#body.night .sailor-night {
   background: #2E32FB;
   border: 1px solid rgba(51, 53, 143, 0.2);
   -webkit-box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
@@ -57,73 +57,73 @@
   color: #FFFFFF;
 }
 
-#body.nigth .sailor-day::first-letter {
+#body.night .sailor-day::first-letter {
   text-decoration: none;
 }
 
-#body.nigth .sailor-nigth::first-letter {
+#body.night .sailor-night::first-letter {
   text-decoration: underline;
 }
 
-#body.nigth .cont-mis-gifos::first-letter {
+#body.night .cont-mis-gifos::first-letter {
   text-decoration: none;
 }
 
-#body.nigth .mis-gifos {
+#body.night .mis-gifos {
   color: #FFFFFF;
 }
 
-#body.nigth .mis-gifos:hover {
+#body.night .mis-gifos:hover {
   border: 1px dotted #FFFFFF;
 }
 
-#body.nigth .mis-gifos:active {
+#body.night .mis-gifos:active {
   color: #6D6485;
 }
 
-#body.nigth .encabezado-buscador {
+#body.night .encabezado-buscador {
   background-image: -webkit-gradient(linear, right top, left top, from(#EE3EFE), to(#2E32FB));
   background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
 }
 
-#body.nigth .cuerpo-buscador {
+#body.night .cuerpo-buscador {
   background: #B4B4B4;
   -webkit-box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 0px 0 0 #FFFFFF;
           box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 0px 0 0 #FFFFFF;
 }
 
-#body.nigth #img_lupa_buscar_day {
+#body.night #img_lupa_buscar_day {
   display: none;
 }
 
-#body.nigth #img_lupa_buscar_nigth {
+#body.night #img_lupa_buscar_night {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-#body.nigth .lupa_buscar {
+#body.night .lupa_buscar {
   background: #EE3EFE;
 }
 
-#body.nigth .txt_buscar {
+#body.night .txt_buscar {
   color: #FFFFFF;
 }
 
-#body.nigth .cuerpo_opciones {
+#body.night .cuerpo_opciones {
   background: #B4B4B4;
 }
 
-#body.nigth .opcion {
+#body.night .opcion {
   background: #CCCCCC;
 }
 
-#body.nigth .inactivo {
+#body.night .inactivo {
   background: #B4B4B4;
   color: #8F8F8F;
 }
 
-#mg_body.nigth {
+#mg_body.night {
   background: #110038 100%;
 }
-/*# sourceMappingURL=nigth.css.map */
+/*# sourceMappingURL=night.css.map */

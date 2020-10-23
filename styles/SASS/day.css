@@ -183,7 +183,7 @@ body .sailor-day::first-letter {
   text-decoration: underline;
 }
 
-body .sailor-nigth {
+body .sailor-night {
   width: 150px;
   height: 36px;
   margin-top: 5%;
@@ -315,7 +315,7 @@ body .lupa_buscar:active {
   outline-offset: -5px;
 }
 
-body #img_lupa_buscar_nigth {
+body #img_lupa_buscar_night {
   display: none;
 }
 

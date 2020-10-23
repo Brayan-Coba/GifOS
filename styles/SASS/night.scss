@@ -1,4 +1,4 @@
-#body.nigth{
+#body.night{
     background: rgb(17, 0, 56) 100%;
 
     .saludo{
@@ -7,7 +7,7 @@
 
     .logo-dia-day{
         display: none;
-    }
+    } 
     
     .logo-noche-day{
         display: block;
@@ -38,7 +38,7 @@
         box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
     }
 
-    .sailor-nigth{
+    .sailor-night{
         background: #2E32FB;
         border: 1px solid rgba(51,53,143,0.20);
         box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
@@ -49,7 +49,7 @@
         text-decoration: none;
     }
 
-    .sailor-nigth::first-letter{
+    .sailor-night::first-letter{
         text-decoration: underline;
     }
 
@@ -81,7 +81,7 @@
         display: none;
     }
 
-    #img_lupa_buscar_nigth{
+    #img_lupa_buscar_night{
         display: flex;
     }
 
@@ -107,5 +107,5 @@
     }
     
 }
-#mg_body.nigth{
+#mg_body.night{
     background: rgb(17, 0, 56) 100%;}

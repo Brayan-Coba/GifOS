@@ -13,6 +13,7 @@ var h = 0;
 var m = 0;
 var s = 0;
 var ml = 0;
+var fallos = 0;
 var recorder;
 var capGif = document.getElementById("id_captar_gif")
 var prevGif = document.getElementById("id_prev_gif")
@@ -29,7 +30,7 @@ var btnCopiarUrlif = document.getElementById("id_btn_copiar_url")
 var btnDescargarGif = document.getElementById("id_btn_descargar_gif")
 var idGif = ""
 var cancelarSubida = false
-var listoParaCopiar = false
+var listoGif = false
 var controller
 
 
@@ -45,7 +46,16 @@ function ocultarCrearGifos(){
 
 function recargarPagina(){
     location.reload();
-};
+}
+
+function modoInicio(){
+    if (listoGif == true){
+        recargarPagina()
+    }
+    else{
+        alert("Cargando GIF, espere un momento")
+    }
+}
 
 
 function getStreamAndRecord(callback){
@@ -55,7 +65,7 @@ function getStreamAndRecord(callback){
         cStr_VIDEO.play();
         callback && callback(stream);
     });
-};
+}
 
 
 function captureCamera(callback) {
@@ -280,7 +290,7 @@ function modoVideoSubido(){
 }
 
 function copiarEnPortapapeles(){
-    if (listoParaCopiar == true){
+    if (listoGif == true){
         var elem2 = document.createElement("textarea");
         elem2.value = urlGif;
         document.body.appendChild(elem2);
@@ -290,7 +300,7 @@ function copiarEnPortapapeles(){
         document.getElementById("id_btn_copiar_url").innerHTML = "Enlace copiado!!!"
     }
     else{
-        return
+        alert("Cargando GIF, espere un momento")
     }
 }
 
@@ -300,12 +310,24 @@ function postearGif(callback){
         method: "POST",
         body: form,
     })
+    .catch(function(e){
+        fallos = fallos + 1
+        console.log(fallos)
+        if (fallos < 4){
+        postearGif(callback)}
+    })
     .then(response =>{
         return response.json();
     })
     .then(response =>{
         idGif = response.data.id
         fetch(cStr_API_SHOW+idGif+"?&"+cStr_API_KEY)
+        .catch(function(e){
+            fallos = fallos + 1
+            console.log(fallos)
+            if (fallos < 4){
+            postearGif(callback)}
+          })
             .then(response => {
                 return response.json();
             })
@@ -316,8 +338,10 @@ function postearGif(callback){
                 localStorage.setItem(idGif,JSON.stringify(gif))
                 document.getElementById("id_contenedor_mis_gifos").innerHTML = ""
                 document.getElementById("id_btn_copiar_url").classList.remove("inactivo")
-                listoParaCopiar = true
+                document.getElementById("id_btn_final").classList.remove("inactivo")
+                listoGif = true
                 cargarLocalStorge()
+                fallos = 0
             })
     })
     }
